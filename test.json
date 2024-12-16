@@ -1,0 +1,407 @@
+{
+    "id": 47,
+    "name": "Nankwanga Prossy",
+    "telephone": "0754500393",
+    "othernumber": "0770562111",
+    "neighbourcontact": "0752528174",
+    "nokcontact": "0704899090",
+    "accountnumber": "CT827052",
+    "address": "Stay near mum resort",
+    "guarantorcontact": "0753483746",
+    "customerphoto": "b86ca1a5-939a-480b-8c62-23f7bb5debc6.jpeg",
+    "imei": {
+        "id": 44,
+        "name": "Smart 7plus",
+        "payg": "7WJ2T3EH",
+        "status": "New",
+        "createdAt": "2024-01-18T13:33:50.000Z",
+        "updatedAt": "2024-01-18T13:33:50.000Z",
+        "manufacturer": "Infinix",
+        "serialnumber": "357182194555608",
+        "deploymentdate": "2024-01-18 13:44:00",
+        "deploymentstatus": "enrolled"
+    },
+    "consentform": [
+        {
+            "answer": "Yes",
+            "question": "Customer consents for their data to be used by EasyRepay to offer other products and services to the customer."
+        },
+        {
+            "answer": "Yes",
+            "question": "I understand, I make a legal commitment to pay the full purchase price to EasyRepay on time."
+        },
+        {
+            "answer": "Yes",
+            "question": "Late on Payment? I understand, my Product from EasyRepay will lock, and I will not be able to use it."
+        },
+        {
+            "answer": "Yes",
+            "question": "Can No Longer Afford to Pay? I must return my working product in the original packaging to the Shop I purchased from through EasyRepay."
+        },
+        {
+            "answer": "Yes",
+            "question": "Fail to Pay or Return? I understand, EasyRepay will contact the Police and my Village Leader."
+        },
+        {
+            "answer": "Yes",
+            "question": "I understand that I need to connect to data regularly to keep my phone from EasyRepay unlocked, and I won't be able to unlock the phone without data."
+        },
+        {
+            "answer": "Yes",
+            "question": "Customer consents to being contacted by EasyRepay."
+        },
+        {
+            "answer": "Yes",
+            "question": "I understand that if I pay after the due date, I will lose out on usage of the device from EasyRepay for the days I missed."
+        },
+        {
+            "answer": "Yes",
+            "question": "I understand, I must report the theft to the police and EasyRepay within 2 days."
+        },
+        {
+            "answer": "Yes",
+            "question": "I understand, my Product from EasyRepay has a 12-month CarlCare warranty for manufacturer defects only."
+        },
+        {
+            "answer": "Yes",
+            "question": "I understand if I attempt to fraudulently unlock the phone from EasyRepay, this is a Criminal Offence and reported to Police."
+        },
+        {
+            "answer": "Yes",
+            "question": "I understand if I sell the phone from EasyRepay before paying the full amount, this is a Criminal Offence and reported to Police."
+        }
+    ],
+    "status": "ENABLED",
+    "dealdetails": {
+        "id": 45,
+        "customerid": 47,
+        "dealid": 12,
+        "userid": 60,
+        "dealname": "SMART 7 PLUS 6 Months",
+        "loanamount": 612000,
+        "amountpaid": 694000,
+        "minpayment": 72000,
+        "downpayment": 180000,
+        "nextpaymentdate": "2024-09-18 16:43:09",
+        "status": "ENABLED",
+        "serialnumber": "357182194555608",
+        "payg": "7WJ2T3EH",
+        "createdAt": "2024-01-18T13:43:09.000Z",
+        "updatedAt": "2024-03-10T22:55:38.000Z"
+    },
+    "customermap": {
+        "id": 47,
+        "name": "Nankwanga Prossy",
+        "usedtitle": "Mrs",
+        "telephone": "0754500393",
+        "sex": "female",
+        "marital_status": "married",
+        "dateofbirth": null,
+        "nationality": null,
+        "address": "Stay near mum resort",
+        "primarycontact": "0754500393",
+        "othernumber": "0770562111",
+        "nok": "Nabirye Sarah",
+        "nokcontact": "0704899090",
+        "neighbour": "Mbowa James",
+        "neighbourcontact": "0752528174",
+        "guarantor": "ISABIRYE ISA",
+        "guarantorcontact": "0753483746",
+        "nin": "CF86007105D1UH",
+        "customerphoto": "b86ca1a5-939a-480b-8c62-23f7bb5debc6.jpeg",
+        "idphoto": "f135aabb-d20a-4d52-aad1-62850ba085d2.jpeg",
+        "status": "ENABLED",
+        "imei": {
+            "id": 44,
+            "name": "Smart 7plus",
+            "payg": "7WJ2T3EH",
+            "status": "New",
+            "createdAt": "2024-01-18T13:33:50.000Z",
+            "updatedAt": "2024-01-18T13:33:50.000Z",
+            "manufacturer": "Infinix",
+            "serialnumber": "357182194555608",
+            "deploymentdate": "2024-01-18 13:44:00",
+            "deploymentstatus": "enrolled"
+        },
+        "consentform": [
+            {
+                "answer": "Yes",
+                "question": "Customer consents for their data to be used by EasyRepay to offer other products and services to the customer."
+            },
+            {
+                "answer": "Yes",
+                "question": "I understand, I make a legal commitment to pay the full purchase price to EasyRepay on time."
+            },
+            {
+                "answer": "Yes",
+                "question": "Late on Payment? I understand, my Product from EasyRepay will lock, and I will not be able to use it."
+            },
+            {
+                "answer": "Yes",
+                "question": "Can No Longer Afford to Pay? I must return my working product in the original packaging to the Shop I purchased from through EasyRepay."
+            },
+            {
+                "answer": "Yes",
+                "question": "Fail to Pay or Return? I understand, EasyRepay will contact the Police and my Village Leader."
+            },
+            {
+                "answer": "Yes",
+                "question": "I understand that I need to connect to data regularly to keep my phone from EasyRepay unlocked, and I won't be able to unlock the phone without data."
+            },
+            {
+                "answer": "Yes",
+                "question": "Customer consents to being contacted by EasyRepay."
+            },
+            {
+                "answer": "Yes",
+                "question": "I understand that if I pay after the due date, I will lose out on usage of the device from EasyRepay for the days I missed."
+            },
+            {
+                "answer": "Yes",
+                "question": "I understand, I must report the theft to the police and EasyRepay within 2 days."
+            },
+            {
+                "answer": "Yes",
+                "question": "I understand, my Product from EasyRepay has a 12-month CarlCare warranty for manufacturer defects only."
+            },
+            {
+                "answer": "Yes",
+                "question": "I understand if I attempt to fraudulently unlock the phone from EasyRepay, this is a Criminal Offence and reported to Police."
+            },
+            {
+                "answer": "Yes",
+                "question": "I understand if I sell the phone from EasyRepay before paying the full amount, this is a Criminal Offence and reported to Police."
+            }
+        ],
+        "salesstage": "CONCLUDED",
+        "createdby": 1,
+        "updatedby": 1,
+        "createdAt": "2024-01-18T13:43:09.000Z",
+        "updatedAt": "2024-02-23T20:50:43.000Z",
+        "accountid": 57,
+        "account": {
+            "id": 57,
+            "userid": 60,
+            "accountname": "Nankwanga Prossy",
+            "accountnumber": "CT827052",
+            "loanamount": null,
+            "loanbalance": null,
+            "amountpaid": null,
+            "nextpaymentdate": null,
+            "accounttype": null,
+            "deal": null,
+            "status": 2,
+            "createdBy": 1,
+            "createdAt": "2024-01-18T13:43:09.000Z",
+            "updatedAt": "2024-01-23T08:54:37.000Z"
+        }
+    },
+    "salesstage": "CONCLUDED",
+    "createdAt": "2024-01-18T13:43:09.000Z",
+    "daysRemaining": 103
+}
+
+
+
+{
+    "id": 47,
+    "name": "Nankwanga Prossy",
+    "telephone": "0754500393",
+    "othernumber": "0770562111",
+    "neighbourcontact": "0752528174",
+    "nokcontact": "0704899090",
+    "accountnumber": "CT827052",
+    "address": "Stay near mum resort",
+    "guarantorcontact": "0753483746",
+    "customerphoto": "b86ca1a5-939a-480b-8c62-23f7bb5debc6.jpeg",
+    "imei": {
+        "id": 44,
+        "name": "Smart 7plus",
+        "payg": "7WJ2T3EH",
+        "status": "New",
+        "createdAt": "2024-01-18T13:33:50.000Z",
+        "updatedAt": "2024-01-18T13:33:50.000Z",
+        "manufacturer": "Infinix",
+        "serialnumber": "357182194555608",
+        "deploymentdate": "2024-01-18 13:44:00",
+        "deploymentstatus": "enrolled"
+    },
+    "consentform": [
+        {
+            "answer": "Yes",
+            "question": "Customer consents for their data to be used by EasyRepay to offer other products and services to the customer."
+        },
+        {
+            "answer": "Yes",
+            "question": "I understand, I make a legal commitment to pay the full purchase price to EasyRepay on time."
+        },
+        {
+            "answer": "Yes",
+            "question": "Late on Payment? I understand, my Product from EasyRepay will lock, and I will not be able to use it."
+        },
+        {
+            "answer": "Yes",
+            "question": "Can No Longer Afford to Pay? I must return my working product in the original packaging to the Shop I purchased from through EasyRepay."
+        },
+        {
+            "answer": "Yes",
+            "question": "Fail to Pay or Return? I understand, EasyRepay will contact the Police and my Village Leader."
+        },
+        {
+            "answer": "Yes",
+            "question": "I understand that I need to connect to data regularly to keep my phone from EasyRepay unlocked, and I won't be able to unlock the phone without data."
+        },
+        {
+            "answer": "Yes",
+            "question": "Customer consents to being contacted by EasyRepay."
+        },
+        {
+            "answer": "Yes",
+            "question": "I understand that if I pay after the due date, I will lose out on usage of the device from EasyRepay for the days I missed."
+        },
+        {
+            "answer": "Yes",
+            "question": "I understand, I must report the theft to the police and EasyRepay within 2 days."
+        },
+        {
+            "answer": "Yes",
+            "question": "I understand, my Product from EasyRepay has a 12-month CarlCare warranty for manufacturer defects only."
+        },
+        {
+            "answer": "Yes",
+            "question": "I understand if I attempt to fraudulently unlock the phone from EasyRepay, this is a Criminal Offence and reported to Police."
+        },
+        {
+            "answer": "Yes",
+            "question": "I understand if I sell the phone from EasyRepay before paying the full amount, this is a Criminal Offence and reported to Police."
+        }
+    ],
+    "status": "ENABLED",
+    "dealdetails": {
+        "id": 45,
+        "customerid": 47,
+        "dealid": 12,
+        "userid": 60,
+        "dealname": "SMART 7 PLUS 6 Months",
+        "loanamount": 612000,
+        "amountpaid": 694000,
+        "minpayment": 72000,
+        "downpayment": 180000,
+        "nextpaymentdate": "2024-09-18 16:43:09",
+        "status": "ENABLED",
+        "serialnumber": "357182194555608",
+        "payg": "7WJ2T3EH",
+        "createdAt": "2024-01-18T13:43:09.000Z",
+        "updatedAt": "2024-03-10T22:55:38.000Z"
+    },
+    "customermap": {
+        "id": 47,
+        "name": "Nankwanga Prossy",
+        "usedtitle": "Mrs",
+        "telephone": "0754500393",
+        "sex": "female",
+        "marital_status": "married",
+        "dateofbirth": null,
+        "nationality": null,
+        "address": "Stay near mum resort",
+        "primarycontact": "0754500393",
+        "othernumber": "0770562111",
+        "nok": "Nabirye Sarah",
+        "nokcontact": "0704899090",
+        "neighbour": "Mbowa James",
+        "neighbourcontact": "0752528174",
+        "guarantor": "ISABIRYE ISA",
+        "guarantorcontact": "0753483746",
+        "nin": "CF86007105D1UH",
+        "customerphoto": "b86ca1a5-939a-480b-8c62-23f7bb5debc6.jpeg",
+        "idphoto": "f135aabb-d20a-4d52-aad1-62850ba085d2.jpeg",
+        "status": "ENABLED",
+        "imei": {
+            "id": 44,
+            "name": "Smart 7plus",
+            "payg": "7WJ2T3EH",
+            "status": "New",
+            "createdAt": "2024-01-18T13:33:50.000Z",
+            "updatedAt": "2024-01-18T13:33:50.000Z",
+            "manufacturer": "Infinix",
+            "serialnumber": "357182194555608",
+            "deploymentdate": "2024-01-18 13:44:00",
+            "deploymentstatus": "enrolled"
+        },
+        "consentform": [
+            {
+                "answer": "Yes",
+                "question": "Customer consents for their data to be used by EasyRepay to offer other products and services to the customer."
+            },
+            {
+                "answer": "Yes",
+                "question": "I understand, I make a legal commitment to pay the full purchase price to EasyRepay on time."
+            },
+            {
+                "answer": "Yes",
+                "question": "Late on Payment? I understand, my Product from EasyRepay will lock, and I will not be able to use it."
+            },
+            {
+                "answer": "Yes",
+                "question": "Can No Longer Afford to Pay? I must return my working product in the original packaging to the Shop I purchased from through EasyRepay."
+            },
+            {
+                "answer": "Yes",
+                "question": "Fail to Pay or Return? I understand, EasyRepay will contact the Police and my Village Leader."
+            },
+            {
+                "answer": "Yes",
+                "question": "I understand that I need to connect to data regularly to keep my phone from EasyRepay unlocked, and I won't be able to unlock the phone without data."
+            },
+            {
+                "answer": "Yes",
+                "question": "Customer consents to being contacted by EasyRepay."
+            },
+            {
+                "answer": "Yes",
+                "question": "I understand that if I pay after the due date, I will lose out on usage of the device from EasyRepay for the days I missed."
+            },
+            {
+                "answer": "Yes",
+                "question": "I understand, I must report the theft to the police and EasyRepay within 2 days."
+            },
+            {
+                "answer": "Yes",
+                "question": "I understand, my Product from EasyRepay has a 12-month CarlCare warranty for manufacturer defects only."
+            },
+            {
+                "answer": "Yes",
+                "question": "I understand if I attempt to fraudulently unlock the phone from EasyRepay, this is a Criminal Offence and reported to Police."
+            },
+            {
+                "answer": "Yes",
+                "question": "I understand if I sell the phone from EasyRepay before paying the full amount, this is a Criminal Offence and reported to Police."
+            }
+        ],
+        "salesstage": "CONCLUDED",
+        "createdby": 1,
+        "updatedby": 1,
+        "createdAt": "2024-01-18T13:43:09.000Z",
+        "updatedAt": "2024-02-23T20:50:43.000Z",
+        "accountid": 57,
+        "account": {
+            "id": 57,
+            "userid": 60,
+            "accountname": "Nankwanga Prossy",
+            "accountnumber": "CT827052",
+            "loanamount": null,
+            "loanbalance": null,
+            "amountpaid": null,
+            "nextpaymentdate": null,
+            "accounttype": null,
+            "deal": null,
+            "status": 2,
+            "createdBy": 1,
+            "createdAt": "2024-01-18T13:43:09.000Z",
+            "updatedAt": "2024-01-23T08:54:37.000Z"
+        }
+    },
+    "salesstage": "CONCLUDED",
+    "createdAt": "2024-01-18T13:43:09.000Z",
+    "daysRemaining": 101
+}

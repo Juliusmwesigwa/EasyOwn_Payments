@@ -1,0 +1,337 @@
+import React, { useEffect } from 'react';
+import { closePaymentModal, useFlutterwave } from 'flutterwave-react-v3';
+import { Input, Space, Typography , Form, Row, Button as AntButton, Result, Col, Image, notification} from 'antd';
+import { getCustomerPaymentDetails } from './utils/ApiUtils';
+import { DOMAIN_MAIL, EasyOwnONStatus, FLW_PUBLIC_KEY, paymentRedirectUrl, paymentdescription, paymentslogo, paymenttitle } from './constants';
+import numeral from 'numeral';
+const Easy_LOGO = require('./easylogo.png');
+
+const { Text } = Typography;
+
+
+export default function App() {
+  const [form] = Form.useForm();
+  
+  //const { getFieldDecorator } = form.getFieldError();
+
+
+  
+    const [customerDetails, setcustomerDetails] = React.useState({
+      payg: "",
+    serialnumber: "",
+    customeraccount: "",
+    amount: 0,
+    customername: "",
+    phonenumber: "",
+    loanamount:"",
+    amountpaid:""
+  });
+    
+    const [payingNumber, setPayingNumber] = React.useState("");
+    
+    const [amountToPay, setAmountToPay] = React.useState("0");
+  
+    const [seeDetails, setSeeDetails] = React.useState(false);
+    const [payg, setPayg] =  React.useState("");
+
+    const styles= {
+      container: {
+        //flex: 1,
+        backgroundColor: '#F2F4F4',
+        alignItems: 'center',
+        justifyContent: 'center',
+       height:'100%',
+       width:'100%',
+       
+      },
+      textInput:{
+        backgroundColor: "white", marginBottom: 9, marginTop: 1, width:'70%', height:40
+      },
+      welcome: { margin: 12, fontSize: 20, fontWeight: "500", alignSelf: "center", color:"black" },
+      submitApplicationButton:{
+        backgroundColor:"#388E3C",
+        width: '100%',
+        padding: 8.5,
+        borderRadius: 5,
+        alignSelf:'center',
+        alignItems: 'center',
+        marginVertical:12,
+        height:50
+      },
+      paymentButton:{
+        backgroundColor:'yellow',
+        height: 50
+      },
+      inputWrapper:{
+        //width:'80%', 
+        alignItems:'center', 
+        marginTop: '1%',
+        backgroundColor:'white',
+        padding: '2%',
+        //width:'60%'
+        marginBottom:'1%',
+        borderRadius:8
+      },
+      antdInput:{
+        borderRadius:4, borderWidth:2, marginTop:-4, color:'black'
+      }
+    }
+   
+  const config = {
+    public_key: FLW_PUBLIC_KEY,
+    tx_ref: payg+Date.now().toString(),
+    amount: amountToPay,
+    currency: 'UGX',
+    //payment_options: 'mobilemoneyuganda',
+    customer: {
+      email:customerDetails.customeraccount!=="" && customerDetails.customeraccount+DOMAIN_MAIL,
+      phone_number: payingNumber,
+      name: customerDetails.customername,
+    },
+    customizations: {
+      title: paymenttitle,
+      logo: paymentslogo,
+      description: paymentdescription,
+    },
+    redirect_url:paymentRedirectUrl,
+    meta:{
+      payg: payg
+    }
+  };
+
+  const handleFlutterPayment = useFlutterwave(config);
+const [isLoading, setIsLoading]=React.useState(false)
+
+///var/www/html/PAY-UI
+
+  const processPayment =(event)=>{
+    event.preventDefault();
+    
+      setIsLoading(true)
+      handleFlutterPayment({
+        callback: (response) => {
+          setIsLoading(false)
+           console.log(response);
+            closePaymentModal() // this will close the modal programmatically
+        },
+        onClose: () => {setIsLoading(false)},
+      });
+    
+  }
+
+  const onFinish = () => {
+    processPayment()
+  };
+
+  const onReset = () => {
+    setSeeDetails(false)
+    form.resetFields();
+  };
+
+  const onTextChange=(e)=>{
+  if(seeDetails===true){
+    setSeeDetails(false)
+  }
+    const input = e.target
+//alert(input.value)
+   
+ setPayg(input.value)
+   // alert(payg)
+  }
+  const getCustomerDetails=async(data)=>{
+   setIsLoading(true)
+    const toPayLoad={
+      payg: data!==undefined?data:payg
+    }
+    getCustomerPaymentDetails(toPayLoad)
+    .then(response=>{
+      setIsLoading(false)
+      if(response.length>0){
+      
+      setSeeDetails(true)
+      setcustomerDetails(response[0])
+      setPayingNumber(response[0].phonenumber)
+      setAmountToPay(response[0].amount)
+      form.setFieldsValue({
+        PayingNumber: response[0].phonenumber, 
+        Amount: response[0].amount,
+        CustomerNumber: response[0].customeraccount,
+        payg:response[0].payg,
+      })
+    }else{
+      
+      //setErrorMessage(true)
+      setIsLoading(false)
+      notification.error({message: 'Error', description:`Device Code ${data!==undefined?data:payg} was not found`})
+    }
+    }).catch(error=>{
+      notification.error({message: 'Error', description:`Device Code ${data} was not found`})
+      ///alert(JSON.stringify(error))
+      setIsLoading(false)
+      setSeeDetails(false)
+       }
+    )
+  }
+
+  
+
+  const queryParameters = new URLSearchParams(window.location.search)
+  const status = queryParameters.get("status")
+  const tx_ref = queryParameters.get("tx_ref")
+  const tr_id=queryParameters.get("transaction_id")
+
+  const clearUrlData=()=>{
+    queryParameters.delete('status')
+    queryParameters.delete('tx_ref')
+    queryParameters.delete('transaction_id')
+    //window.history.pushState(0, "", '/')
+    window.location.replace('/')
+  }
+
+ useEffect(() => {
+  // if(queryParameters.get("deviceTag") !==null){
+  //   getCustomerDetails(queryParameters.get("deviceTag"));
+  // }
+
+  if (queryParameters.get("deviceTag") !== null || queryParameters.get("devicetag") !== null) {
+    const deviceTag = queryParameters.get("deviceTag") || queryParameters.get("devicetag");
+    setPayg(deviceTag)
+    getCustomerDetails(deviceTag);
+}
+  }, 
+  
+  []
+  ); 
+  return (
+    <Row justify={'center'}>
+                  <Row style={{backgroundColor:'white', paddingLeft:16, paddingRight:16, width:'90%', marginTop:12, borderRadius:9}}
+                   justify={'center'}>
+                {EasyOwnONStatus!==true ? <Text style={{fontSize:25, fontWeight:'500', color:"#263238", marginTop:8}}>{paymenttitle}</Text>  
+        :<Image width={200} src={Easy_LOGO} />} 
+                  {status !=null && status.toString().length>0 &&
+                  <Col span={24} >
+          <Result
+            status="success"
+            title="Your Payment was Successful!"
+            subTitle={<Text copyable style={{ fontSize: 16, fontWeight: '500' }}>
+              Transaction Reference is: {tx_ref} and transaction Id is: {tr_id}</Text>}
+            extra={[
+              <AntButton htmlType="button" type="primary"
+                style={{}} onClick={() =>clearUrlData()}>
+                Go back
+              </AntButton>,
+            ]}
+          />
+          </Col>
+ } 
+                  
+{/* Form */} 
+                    <Row justify={'center'} style={{width:'100%'}}>
+                      <Col span={24} >
+            {seeDetails === true  ?
+              <center>
+                <Text strong>Hello, {customerDetails.customername}</Text>
+                <br/>
+                
+                <Text strong>Your Phone is, {customerDetails.dealname} and your balance is 
+               UGX {numeral(customerDetails.loanamount-customerDetails.amountpaid).format(',')}</Text>
+              </center>
+              : null}    
+            <Form layout='vertical' form={form} name="control-hooks" onFinish={onFinish}
+            
+            //style={{ width:'100%'}}
+            >
+              {status ===null &&(
+              //   EasyOwnONStatus ?
+              //   (
+              //     <center>
+              //       <Space style={{paddingBottom:20, display:'block'}}>
+              //       <Text strong>Dear Customer,</Text>
+                   
+              //       <Text strong copyable> Please Call 0705152137 for assistance</Text>
+              //       </Space>
+              //     </center>
+              //   ):
+
+              //   <Form.Item name="payg" label="PAYG NUMBER" rules={[{ required: true }]}>
+              //   <Input style={styles.antdInput} value={payg} name='payg' 
+              //    onInput={(e)=>onTextChange(e)}
+              //   />
+              // </Form.Item>
+              <Form.Item name="payg" label="PAYG NUMBER" rules={[{ required: true }]}>
+                <Input style={styles.antdInput} value={payg} name='payg' 
+                 onInput={(e)=>onTextChange(e)}
+                />
+              </Form.Item>
+              )
+              }
+              {seeDetails ===true && customerDetails.customeraccount!==""?
+              <>
+              <Form.Item name="CustomerNumber" label="Customer Number" rules={[{ required: false }]} >
+                <Input size='large' style={styles.antdInput} 
+                value={customerDetails.customeraccount!=="" && customerDetails.customeraccount} status={customerDetails.customeraccount!==""?'success':'error'} disabled />
+              </Form.Item>
+              <Form.Item name="PayingNumber" label="Paying Number" rules={[{ required: true }]}>
+                <Input size='large' style={styles.antdInput} value={payingNumber.toString()} type='text'
+                //onChange={(e) => setPayingNumber(e.target.value)}
+                status={payingNumber!==""?'success':'error'}
+                onChange={(e) => setPayingNumber(e.target.value)}
+                />
+              </Form.Item>
+              <Form.Item name="Amount" label="Amount" rules={[{ required: true }]}>
+                <Input size='large' style={styles.antdInput} onChange={(e) => setAmountToPay(e.target.value)} 
+                value={amountToPay.toString()} 
+                />
+              </Form.Item>
+              <center>
+                <Form.Item >
+                  <Space>
+                    <AntButton type="primary" htmlType="submit"
+                      loading={isLoading}
+                      disabled={isLoading ? true : false}
+                       onClick={(e) => processPayment(e)}
+                      style={{ backgroundColor: isLoading ? '#AED6F1' : '#2471A3', color: 'white' }}
+                    >
+                      PAY NOW
+                    </AntButton>
+                    
+                    <AntButton htmlType="button" onClick={onReset}>
+                      Reset
+                    </AntButton>
+                  </Space>
+                </Form.Item>
+                
+             
+              </center>
+              </>:null }
+{/* {!seeDetails &&  status ==null  && ! EasyOwnONStatus ? */}
+{!seeDetails &&  status ==null ?
+              <center>
+                <Form.Item >
+                  <Space>
+                    <AntButton type="primary" 
+                      loading={isLoading}
+                      disabled={isLoading ? true : false}
+                      value={payg}
+                       onClick={() => getCustomerDetails()}
+                      style={{ backgroundColor: isLoading ? '#AED6F1' : '#2471A3', color: 'white' }}
+                    >
+                      REQUEST DETAILS
+                    </AntButton>
+                  </Space>
+                </Form.Item>
+                
+             
+              </center>:null}
+            </Form>
+         
+            </Col>
+                    </Row>              
+    </Row>
+
+    
+    </Row>
+  );
+}
+
+
