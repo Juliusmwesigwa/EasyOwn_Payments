@@ -33,7 +33,7 @@ const collection = async (options) => {
 
 export function getCustomerPaymentDetails(toPayLoad) {
     return request({
-        url: API_BASE_URL + "/customers/getCustomerPaymentDetails",
+        url: API_BASE_URL + "/customers/getCustomerPaymentDetailsx",
         method: 'POST',
         body: JSON.stringify(toPayLoad)
     });

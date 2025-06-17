@@ -308,14 +308,14 @@ alert(error.message)
  setPayg(input.value)
    // alert(payg)
   }
-  const getCustomerDetails=async(data)=>{
+  const getCustomerDetailsffff=async(data)=>{
    setIsLoading(true)
     const toPayLoad={
       payg: data!==undefined?data:payg
     }
     getCustomerPaymentDetails(toPayLoad)
     .then(response=>{
-      //alert(JSON.stringify(response))
+      alert(JSON.stringify(response))
       setIsLoading(false)
       if(response.length>0){
       let balance = response[0].loanamount - response[0].amountpaid
@@ -331,7 +331,9 @@ alert(error.message)
         CustomerNumber: response[0].customeraccount,
         payg:response[0].payg,
       })
-    }else{
+    }
+    
+    else{
       
       //setErrorMessage(true)
       setIsLoading(false)
@@ -346,7 +348,48 @@ alert(error.message)
     )
   }
 
-  
+  const getCustomerDetails = async (data) => {
+  setIsLoading(true);
+  const code = data !== undefined ? data : payg;
+
+  try {
+    const toPayLoad = { payg: code };
+    const response = await getCustomerPaymentDetails(toPayLoad);
+    if (response.length > 0) {
+      const customer = response[0];
+      const balance = customer.loanamount - customer.amountpaid;
+      const minpayment = customer.amount;
+      const amount = balance < minpayment ? balance : minpayment;
+
+      setSeeDetails(true);
+      setcustomerDetails(customer);
+      setPayingNumber(customer.phonenumber);
+      setAmountToPay(amount);
+
+      form.setFieldsValue({
+        PayingNumber: customer.phonenumber,
+        Amount: amount,
+        CustomerNumber: customer.customeraccount,
+        payg: customer.payg,
+      });
+    } else {
+      notification.error({
+        message: 'Error',
+        description: `${response.messsage} `,
+      });
+      setSeeDetails(false);
+    }
+  } catch (error) {
+    notification.error({
+      message: 'Error',
+      description: `${error.message}`,
+    });
+    setSeeDetails(false);
+  } finally {
+    setIsLoading(false);
+  }
+};
+
 
  
   // const status = queryParameters.get("status")
