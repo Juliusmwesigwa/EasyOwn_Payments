@@ -380,7 +380,7 @@ const processPayment = async () => {
       await pollTransactionStatus();
     }
 
-    if (getNetwork(payingNumber) === 'MTN' && response.code === 200) {
+    if (getNetwork(payingNumber) === 'MTN') {
       console.log(response)
       if (response.status === 'completed') {
       window.location.replace(`/?status=success&tx_ref=${payg}&transaction_id=${response.payment.transactionid}`);
