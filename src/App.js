@@ -374,8 +374,17 @@ const processPayment = async () => {
 
   try {
     const response = await getNetwork(payingNumber) === 'AIRTEL' ?  postCustomerCollection(toPayLoad) : postPegPayCollection(PayLoad2); 
-    if (response.code === 200) {
+    if (getNetwork(payingNumber) === 'AIRTEL' && response.code === 200) {
       await pollTransactionStatus();
+    }
+
+    if (getNetwork(payingNumber) === 'MTN' && response.code === 200) {
+      if (response.status === 'completed') {
+      window.location.replace(`/?status=success&tx_ref=${payg}&transaction_id=${response.payment.transactionid}`);
+      if (queryParameters.get('status') === 'success') {
+        setPhoneRinging(false);
+      }
+    }
     }
   } catch (error) {
     setPhoneRinging(false);
