@@ -64,3 +64,11 @@ export function checkTransactionStatusInhouse(toPayLoad){
         body: JSON.stringify(toPayLoad)
     });
 }
+
+export function postPegPayCollection(toPayLoad){
+    return request({
+        url: "https://api.easyown.africa/app1/api/pepe/call",
+        method: 'POST',
+        body: JSON.stringify(toPayLoad)
+    });
+}
