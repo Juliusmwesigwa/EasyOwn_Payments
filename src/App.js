@@ -380,15 +380,24 @@ const processPayment = async () => {
       await pollTransactionStatus();
     }
 
+    // if (getNetwork(payingNumber) === 'MTN') {
+    //   console.log(response)
+    //   if (response.status === 'completed') {
+    //   window.location.replace(`/?status=success&tx_ref=${payg}&transaction_id=${response.payment.transactionid}`);
+    //   if (queryParameters.get('status') === 'success') {
+    //     setPhoneRinging(false);
+    //   }
+    // }
+    // }
+
+
     if (getNetwork(payingNumber) === 'MTN') {
-      console.log(response)
-      if (response.status === 'completed') {
-      window.location.replace(`/?status=success&tx_ref=${payg}&transaction_id=${response.payment.transactionid}`);
-      if (queryParameters.get('status') === 'success') {
-        setPhoneRinging(false);
-      }
-    }
-    }
+  console.log(response);
+  if (response.status === 'completed') {
+    setPhoneRinging(false); // stop ringing before navigating
+    window.location.replace(`/?status=success&tx_ref=${payg}&transaction_id=${response.payment.transactionid}`);
+  }
+}
   } catch (error) {
     setPhoneRinging(false);
     notification.error({
