@@ -376,7 +376,7 @@ const processPayment = async () => {
     const response = getNetwork(payingNumber) === 'AIRTEL' ?  await postCustomerCollection(toPayLoad) : await postPegPayCollection(PayLoad2); 
     console.log(response)
     console.log(getNetwork(payingNumber))
-    if (getNetwork(payingNumber) === 'AIRTEL' && response.code === 200) {
+    if (await getNetwork(payingNumber) === 'AIRTEL' && response.code === 200) {
       
       await pollTransactionStatus();
     }
