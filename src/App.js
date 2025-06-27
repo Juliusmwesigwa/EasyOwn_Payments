@@ -376,8 +376,9 @@ const processPayment = async () => {
     const response = getNetwork(payingNumber) === 'AIRTEL' ?  await postCustomerCollection(toPayLoad) : await postPegPayCollection(PayLoad2); 
     console.log(response)
     console.log(getNetwork(payingNumber))
-    if (await getNetwork(payingNumber) === 'AIRTEL' && response.code === 200) {
-      
+    const network = getNetwork(payingNumber);
+    if (network === 'AIRTEL' && response.code === 200) {
+
       await pollTransactionStatus();
     }
 
@@ -391,8 +392,7 @@ const processPayment = async () => {
     // }
     // }
 
-
-    if (getNetwork(payingNumber) === 'MTN') {
+    if (network === 'MTN') {
   //console.log(response);
   if (response.status === 'completed') {
     setPhoneRinging(false); // stop ringing before navigating
