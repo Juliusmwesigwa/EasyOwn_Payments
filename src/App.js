@@ -373,10 +373,10 @@ const processPayment = async () => {
   setPhoneRinging(true);
 
   try {
-    const response = getNetwork(payingNumber) === 'AIRTEL' ?  await postCustomerCollection(toPayLoad) : await postPegPayCollection(PayLoad2); 
+    const response = await getNetwork(payingNumber) === 'AIRTEL' ?  await postCustomerCollection(toPayLoad) : await postPegPayCollection(PayLoad2); 
     console.log(response)
-    console.log(getNetwork(payingNumber))
-    const network = getNetwork(payingNumber);
+  
+    const network = await getNetwork(payingNumber);
     if (network === 'AIRTEL' && response.code === 200) {
 
       await pollTransactionStatus();
